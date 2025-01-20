@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>Add expenses</header>
+    <nav>
+        <a data-th-href="@{/homepage/{name}(name=${user.username})}">Back</a>
+    </nav>
+
+    <form data-th-action="@{/success/{name}(name=${user.username})}" method="POST">
+        <table>
+            <tr>
+                <td>Category: </td>
+                <td>
+                    <select name="category">
+                        <option value="food">Food</option>
+                        <option value="transport">Transportation</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="groceries">Groceries</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="health">Health & Wellness</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="bills">Bills</option>
+                        <option value="housing">Housing</option>
+                        <option value="education">Education</option>
+                        <option value="travel">Travel</option>
+                        <option value="gift">Gift</option>
+                        <option value="charity">Charity</option>
+                        <option value="miscellaneous">Miscellaneous</option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Amount: </td>
+                <td>
+                    <input type="text" name="amount">
+                </td>
+            </tr>
+            <tr>
+                <td>Purchase Date: </td>
+                <td>
+                    <input type="date" name="purchase_date">
+                </td>
+            </tr>
+            <tr>
+                <td>Description: </td>
+                <td>
+                    <textarea name="description"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Add Expense</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

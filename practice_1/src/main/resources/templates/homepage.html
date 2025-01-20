@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>Homepage of <span data-th-text = ${user.username}></span></header>
+    <nav>
+        <a data-th-href="@{/addExpense/{name}(name=${user.username})}">Add Expense</a>
+    </nav>
+    <section>
+        <div data-th-if="${expenses == null or expenses.isEmpty()}"> No Data</div>
+        <div data-th-if="${expenses != null or !expenses.isEmpty()}"> 
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User_id</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th>Purchase_date</th>
+                    </tr>
+                    <tr data-th-each="expense:${expenses}">
+                        <td data-th-text="${expense.id}"></td>
+                        <td data-th-text="${expense.user_id}"></td>
+                        <td data-th-text="${expense.category}"></td>
+                        <td data-th-text="${expense.amount}"></td>
+                        <td data-th-text="${expense.description}"></td>
+                        <td data-th-text="${expense.purchase_date}"></td>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <form action="/logout" method="GET"> 
+            <button type="submit">
+                Logout
+            </button>
+        </form>
+    </section>
+
+</body>
+</html>
